@@ -32,4 +32,4 @@ You can run this application either locally or via Docker:
     ```
 
 2. Navigate to [localhost:5001](localhost:5001)
-
+> **NOTE:** I built the Docker image in the repo on my MacBook with an M2 chip. If you need to run it on a different architecture, you'll have to [build it](https://docs.docker.com/engine/reference/commandline/build/) on your desired system.
