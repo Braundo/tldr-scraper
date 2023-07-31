@@ -1,6 +1,6 @@
 # TLDR Scraper
 
-This application will let you view articles from the `ai`, `tech` and `webdev` topics from the [TLDR Newsletter](www.tldr.tech) in an easy-to-read web browser format as opposed to a list of links in an e-mail. If you're interested in other TLDR topics you can simply adjust the list of URLs in the `generate_links_html()` function within [app.py](app.py).
+This application will let you view articles from the `ai`, `tech` and `webdev` topics from the <a href="https://www.tldr.tech" target="_blank">TLDR Newsletter</a> in an easy-to-read web browser format as opposed to a list of links in an e-mail. If you're interested in other TLDR topics you can simply adjust the list of URLs in the `generate_links_html()` function within [app.py](app.py).
 
 No subscription to TLDR is needed to view these links.
 
@@ -32,4 +32,4 @@ You can run this application either locally or via Docker:
     ```
 
 2. Navigate to [localhost:5001](localhost:5001)
-> **NOTE:** I built the Docker image in the repo on my MacBook with an M2 chip. If you need to run it on a different architecture, you'll have to [build it](https://docs.docker.com/engine/reference/commandline/build/) on your desired system.
+> **NOTE:** I built the Docker image in the repo on my MacBook with an M2 chip. If you need to run it on a different architecture, you'll have to <a href="https://docs.docker.com/engine/reference/commandline/build/" target="_blank">build it</a> on your desired system.
