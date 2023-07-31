@@ -12,8 +12,10 @@ You can run this application either locally or via Docker:
 
 ### Run Locally
 1. Download and extract the code in this repository.
-2. Run the `app.py` Python file
-3. Navigate to [localhost:5001](localhost:5001)
+2. Install Python dependencies by running the following command in the extracted repository:
+    ```pip install -r requirements.txt```
+3. Run the `app.py` Python file
+4. Navigate to [localhost:5001](localhost:5001)
 
 
 ### Run in Docker
