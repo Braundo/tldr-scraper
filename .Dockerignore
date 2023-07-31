@@ -2,3 +2,6 @@ _pycache_/
 
 # Date link files
 *_links.txt
+
+# DS_Store
+*/.DS_Store

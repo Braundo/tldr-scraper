@@ -9,6 +9,9 @@ __pycache__/
 # Date link files
 *_links.txt
 
+# DS_Store
+*/.DS_Store
+
 # Distribution / packaging
 .Python
 build/
