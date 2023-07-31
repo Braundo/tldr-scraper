@@ -31,7 +31,7 @@ def generate_links_html():
         # Use today's date
         date = datetime.date.today().strftime("%Y-%m-%d")
 
-    urls = ["https://tldr.tech/tech", "https://tldr.tech/ai"]
+    urls = ["https://tldr.tech/tech", "https://tldr.tech/ai", "https://tldr.tech/webdev"]  # Add the new URL here
     links = []
 
     for url in urls:

@@ -1,6 +1,6 @@
 # TLDR Scrapper
 
-This application will let you view articles from the `tech` and `ai` topics from the [TLDR Newsletter](www.tldr.tech) in an easy-to-read web browser as opposed to a list of links in an e-mail.
+This application will let you view articles from the `ai`, `tech` and `webdev` topics from the [TLDR Newsletter](www.tldr.tech) in an easy-to-read web browser format as opposed to a list of links in an e-mail. If you're interested in other TLDR topics you can simply adjust the list of URLs in the `generate_links_html()` function within [app.py](app.py).
 
 No subscription to TLDR is needed to view these links.
 
