@@ -4,6 +4,8 @@ This application will let you view articles from the `tech` and `ai` topics from
 
 No subscription to TLDR is needed to view these links.
 
+![](assets/screenshot.png)
+
 You can run this application either locally or via Docker:
 
 ### Run Locally
