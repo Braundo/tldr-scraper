@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLDR Links</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500&display=swap');
+    
+        body {
+            font-family: 'Product Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282a36;
+            color: #f8f8f2;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        .link-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    
+        .link-box {
+            position: relative;
+            border: 0px solid #434c5e;
+            border-radius: 18px;
+            padding: 16px;
+            background-color: #333545;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.2s, opacity 0.2s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .link-box:hover {
+            background-color: #4c566a;
+        }
+    
+        .link-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            background-color: #2e3440;
+        }
+    
+        .link-title {
+            color: #bd93f9; /* Set the color of article titles */
+            text-decoration: none;
+            white-space: normal;
+            margin: 0;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+        }
+    
+        .link-time {
+            font-family: 'Fira Code', monospace;
+            color: #fff;
+            font-size: 14px;
+            margin: 0;
+            padding: 20px 10px;
+        }
+    
+        .link-box.read {
+            opacity: 0.3;
+            pointer-events: none; /* Disable clicking on the link box */
+        }
+    
+        .link-box.read .circle-button {
+            pointer-events: auto; /* Enable clicking on the read button */
+        }
+
+        .link-box.read .circle-buttons-container {
+            align-items: flex-start;
+        }
+    
+        .circle-buttons-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+    
+        .circle-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #50fa7b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+    
+    
+        h1 {
+            margin-bottom: 20px;
+            color: #d8dee9;
+            font-family: 'Product Sans', sans-serif;
+        }
+        
+    
+        .link-url {
+            display: none;
+        }
+
+        a {
+            color: #282a36;
+            text-decoration: none;
+        }
+    
+        .read-button {
+            background-color: #50fa7b;
+        }
+
+        .footer {
+            flex-shrink: 0;
+            padding: 200px !important;
+        }
+
+        .small-logo {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            filter: invert(100%);
+        }
+    </style>
+    
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1><center>TLDR for {{ date }}</center></h1>
+        <div class="link-container">
+            {% for headline, time_to_read, url in links %}
+            <a class="link-box" href="{{ url }}" target="_blank">
+                <span class="link-title">{{ headline }}</span>
+                {% if time_to_read %}
+                    <span class="link-time">{{ time_to_read }} minute read</span>
+                {% endif %}
+                <div class="circle-buttons-container">
+                    <div class="circle-button" onclick="toggleRead(event)">
+                        <i class="link-icon mdi mdi-book-open-variant"></i>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    <script>
+
+
+        function toggleRead(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            const circleButton = event.target.closest('.circle-button');
+            const linkBox = circleButton.closest('.link-box');
+            linkBox.classList.toggle('read');
+        }
+
+        const linkBoxes = document.querySelectorAll('.link-box');
+
+linkBoxes.forEach(linkBox => {
+    const linkTitle = linkBox.querySelector('.link-title');
+    linkBox.addEventListener('click', () => {
+        linkBox.classList.toggle('read');
+        linkTitle.classList.toggle('read');
+    });
+});
+    </script>
+</body>
+
+<footer>
+    <p>
+      <center>
+         <img class="small-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github Logo">
+         <a href="https://github.com/Braundo/tldr-scrapper" target="_blank" style="font-family: 'Fira Code', monospace; color: #50fa7b;">See on Github</a>
+    </center>
+   </p>
+   </footer>
+
+</html>
