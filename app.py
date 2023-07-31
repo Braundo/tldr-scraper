@@ -5,6 +5,8 @@ import datetime
 from bs4 import BeautifulSoup
 import atexit
 import re
+import schedule
+import time
 
 app = Flask(__name__)
 
@@ -77,8 +79,27 @@ def delete_text_files():
         except FileNotFoundError:
             pass
 
+# Check for new links
+def fetch_and_update_links():
+    links_html = generate_links_html()
+    if links_html:
+        date, links = links_html
+        with open(f"{date}_links.txt", "w") as file:
+            for headline, time_to_read, url in links:
+                file.write(f"{headline}: {url}\n")
+                
+# Schedule the job to run every hour
+schedule.every().hour.do(fetch_and_update_links)
+
+
+
 
 atexit.register(delete_text_files)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
+
+# Run the scheduled jobs in the background
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
