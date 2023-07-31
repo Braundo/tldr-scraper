@@ -13,7 +13,9 @@ You can run this application either locally or via Docker:
 ### Run Locally
 1. Download and extract the code in this repository.
 2. Install Python dependencies by running the following command in the extracted repository:
-    ```pip install -r requirements.txt```
+    ```
+    pip install -r requirements.txt
+    ```
 3. Run the `app.py` Python file
 4. Navigate to [localhost:5001](localhost:5001)
 
@@ -21,9 +23,13 @@ You can run this application either locally or via Docker:
 ### Run in Docker
 1. With Docker installed, pull the image from DockerHub:
 
-    ```docker pull braundo30/tldr-scraper:latest```
+    ```
+    docker pull braundo30/tldr-scraper:latest
+    ```
 
-    ```docker run -p 5001:5001 braundo30/tldr-scraper:latest```
+    ```
+    docker run -p 5001:5001 braundo30/tldr-scraper:latest
+    ```
 
 2. Navigate to [localhost:5001](localhost:5001)
 
