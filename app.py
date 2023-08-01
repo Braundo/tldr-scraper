@@ -104,7 +104,7 @@ schedule.every().hour.do(fetch_and_update_links)
 atexit.register(delete_text_files)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=8989)
 
 # Run the scheduled jobs in the background
     while True:

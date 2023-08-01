@@ -17,7 +17,7 @@ You can run this application either locally or via Docker:
     pip install -r requirements.txt
     ```
 3. Run the `app.py` Python file
-4. Navigate to [localhost:5001](localhost:5001)
+4. Navigate to [localhost:8989](localhost:8989)
 
 
 ### Run in Docker
@@ -28,8 +28,8 @@ You can run this application either locally or via Docker:
     ```
 
     ```
-    docker run -p 5001:5001 braundo30/tldr-scraper:latest
+    docker run -p 8989:8989 braundo30/tldr-scraper:latest
     ```
 
-2. Navigate to [localhost:5001](localhost:5001)
+2. Navigate to [localhost:8989](localhost:8989)
 > **NOTE:** I built the Docker image in the repo on my MacBook with an M2 chip. If you need to run it on a different architecture, you'll have to <a href="https://docs.docker.com/engine/reference/commandline/build/" target="_blank">build it</a> on your desired system.
