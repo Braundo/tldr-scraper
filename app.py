@@ -33,12 +33,13 @@ def generate_links_html():
         # Use today's date
         date = datetime.date.today().strftime("%Y-%m-%d")
 
-    urls = ["https://tldr.tech/tech", "https://tldr.tech/ai", "https://tldr.tech/webdev"]  # Add the new URL here
+    urls = ["https://tldr.tech/tech", "https://tldr.tech/ai", "https://tldr.tech/webdev"]
     links = []
 
     for url in urls:
-        response = requests.get(f"{url}/{date}")
-        if response.status_code == 200:
+        try:
+            response = requests.get(f"{url}/{date}")
+            response.raise_for_status()  # Raise exception for unsuccessful responses
             soup = BeautifulSoup(response.content, "html.parser")
             for link in soup.find_all("a", class_="font-bold"):
                 headline = link.text.strip()
@@ -53,10 +54,16 @@ def generate_links_html():
                 # Skip articles with the text "(Sponsor)"
                 if "(Sponsor)" not in headline:
                     links.append((headline, time_to_read, link["href"]))
-        else:
-            return None
+
+        except Exception as e:
+            print(f"Error fetching data from {url}: {e}")
+            continue
+
+    if not links:
+        return None
 
     return date, links
+
 
 @app.route('/')
 def index():
