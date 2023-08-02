@@ -32,4 +32,4 @@ You can run this application either locally or via Docker:
     ```
 
 2. Navigate to [localhost:8989](localhost:8989)
-> **NOTE:** I built the Docker image in the repo on my MacBook with an M2 chip. If you need to run it on a different architecture, you'll have to <a href="https://docs.docker.com/engine/reference/commandline/build/" target="_blank">build it</a> on your desired system.
+> **NOTE:** I built the Docker image listed above on my MacBook with an M2 chip. If you need an x86-64 image, use `tldr-scraper-x86`.
